@@ -1,119 +1,89 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Grievance Monitoring System</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet" />
-
-    @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @else
-        <style>
-            @import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
-            body { font-family: 'Inter', sans-serif; }
-        </style>
-    @endif
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | GMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-white min-h-screen flex flex-col">
+<body class="h-screen w-screen flex">
 
-    <!-- Consent Modal -->
-    <div id="consentModal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-        <div class="bg-white p-8 rounded-xl w-full max-w-md shadow-lg text-center relative">
-            <img src="{{ asset('images/consent.png') }}" alt="Consent" class="mx-auto mb-6 h-40">
-            <p class="text-sm leading-relaxed mb-6 text-gray-800">
-                By continuing to use the <span class="font-semibold">GMS</span>, you agree to the
-                <a href="https://www.usep.edu.ph" class="text-red-800 hover:underline" target="_blank">
-                    University of Southeastern Philippines’ Data Privacy Statement
-                </a>.
-            </p>
-            <button onclick="hideConsent()" class="bg-red-900 hover:bg-red-800 text-white font-semibold py-2 px-6 rounded-full">
-                CONTINUE
-            </button>
+    <!-- Left Section - Red Gradient with Login Form -->
+    <div class="w-1/2 h-full bg-gradient-to-br from-[#6f0909] to-[#450606] flex items-center justify-center">
+        <!-- Glassy Login Box -->
+        <div class="w-[85%] max-w-[420px] bg-white bg-opacity-10 rounded-2xl p-10 shadow-2xl">
+            <h1 class="text-4xl font-bold text-center text-white mb-2">Login</h1>
+            <div class="w-16 h-[2px] bg-white mx-auto mb-8"></div>
+
+            <form id="loginForm" action="/login" method="POST" class="space-y-6">
+                @csrf
+
+                <!-- ID Number -->
+                <input type="text" name="email" placeholder="ID Number" required
+                       class="w-full border-b-2 border-white focus:border-white focus:outline-none py-3 text-white bg-transparent placeholder-white text-lg font-medium">
+
+                <!-- Password -->
+                <div class="relative">
+                    <input type="password" name="password" placeholder="Password" required
+                           class="w-full border-b-2 border-white focus:border-white focus:outline-none py-3 text-white bg-transparent placeholder-white pr-10 text-lg font-medium">
+                </div>
+
+                <!-- Remember Me + Forgot Password -->
+                <div class="flex justify-between items-center text-white">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" name="remember" class="accent-white w-4 h-4">
+                        <span class="text-lg font-medium">Remember me</span>
+                    </label>
+                    <a href="#" class="text-white hover:underline text-lg font-medium">Forget password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit"
+                        class="w-full bg-white text-[#6f0909] font-bold py-4 rounded-lg transition mb-6 text-xl">
+                    LOGIN
+                </button>
+
+                <!-- Divider -->
+                <div class="flex items-center my-6">
+                    <hr class="flex-grow border-t-2 border-white">
+                    <span class="mx-4 text-white text-lg font-medium">or</span>
+                    <hr class="flex-grow border-t-2 border-white">
+                </div>
+
+                <!-- Google Button (styled like screenshot: white bg, maroon text) -->
+                <button type="button" onclick="signInWithGoogle()"
+                        class="w-full bg-white text-[#6f0909] font-semibold py-4 rounded-lg transition text-lg hover:bg-gray-100">
+                    Sign in with Google
+                </button>
+
+                <!-- Signup Link -->
+                <div class="text-center text-white text-lg mt-6 font-medium">
+                    Don’t have an account? <a href="#" class="underline hover:no-underline font-semibold">Sign up</a>
+                </div>
+            </form>
         </div>
     </div>
 
- 
-    <main class="flex-grow flex">
-        
-        <div class="w-1/2 min-h-screen flex items-center justify-center">
-            <div class="w-[400px] bg-white border rounded-xl shadow-xl px-8 py-6 flex flex-col items-center">
-               
-                <div class="mb-4">
-                    <img src="{{ asset('images/osas_logo.png') }}" alt="Logo" class="h-20 mx-auto">
-                </div>
-
-                
-                <div class="w-full">
-                    <h1 class="text-3xl font-bold text-center text-black mb-1">Login</h1>
-                    <div class="w-12 h-[2px] bg-[#a10101] mx-auto mb-6"></div>
-
-                    
-                    <form id="loginForm" action="/login" method="POST" class="space-y-4 opacity-30 pointer-events-none">
-                        @csrf
-
-                     
-                        <input type="text" name="email" placeholder="ID Number" required
-                               class="w-full border-b border-gray-400 focus:border-[#a10101] focus:outline-none py-2 text-gray-800 bg-transparent">
-
-                        
-                        <input type="password" name="password" placeholder="Password" required
-                               class="w-full border-b border-gray-400 focus:border-[#a10101] focus:outline-none py-2 text-gray-800 bg-transparent">
-
-                        
-                        <div class="flex justify-between items-center text-sm text-gray-600">
-                            <label class="flex items-center space-x-2">
-                                <input type="checkbox" name="remember" class="accent-[#a10101]">
-                                <span>Remember me</span>
-                            </label>
-                            <a href="#" class="text-blue-600 hover:underline">Forgot password? <span class="text-blue-600 font-bold"></span></a>
-                        </div>
-
-                    
-                        <button type="submit"
-                                class="w-full bg-red-900 hover:bg-red-700 text-white font-semibold py-3 rounded-full transition mb-6 border border-white-400">
-                            LOGIN
-                        </button>
-
-                      
-                        <div class="flex items-center my-6">
-                            <hr class="flex-grow border-t border-gray-300">
-                            <span class="mx-2 text-gray-500 text-sm">or</span>
-                            <hr class="flex-grow border-t border-gray-300">
-                        </div>
-
-                        <div class="h-10"></div>
-                    </form>
-                </div>
-            </div>
+    <!-- Right Section - Illustration -->
+    <div class="w-1/2 bg-white h-full flex flex-col items-center justify-between px-12">
+        <!-- Illustration -->
+        <div class="flex-1 flex items-center justify-center">
+            <img src="{{ asset('images/Login_pic.png') }}" 
+                 alt="Login Illustration" 
+                 class="h-[650px] w-auto object-contain"> <!-- Increased size -->
         </div>
 
-       
-        <div class="w-1/2 bg-white"></div>
-    </main>
-
-
-    <footer class="w-full text-center py-4 border-t border-gray-300 text-sm text-gray-600">
-        <p>
-            Copyright &copy; 2025. All Rights Reserved
-            <a href="#" class="text-blue-600 hover:underline">Terms of Use</a> |
-            <a href="https://www.usep.edu.ph/usep-data-privacy-statement/"
-       target="_blank" rel="noopener noreferrer"
-       class="text-blue-600 hover:underline">
-      Privacy Policy
-    </a>
-    </p>
-    </footer>
+        <!-- Copyright -->
+        <div class="text-lg text-gray-400 pb-6 text-center tracking-wide">
+            © Office of Student Affairs and Services. All Rights Reserved.
+        </div>
+    </div>
 
     <script>
-        function hideConsent() {
-            document.getElementById('consentModal').style.display = 'none';
-            const form = document.getElementById('loginForm');
-            form.classList.remove('opacity-30', 'pointer-events-none');
+        function signInWithGoogle() {
+            alert("Google Sign-in will be integrated later.");
         }
     </script>
+
 </body>
 </html>
-
