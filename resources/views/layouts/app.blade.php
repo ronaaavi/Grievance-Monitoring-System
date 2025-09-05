@@ -15,9 +15,9 @@
 <body class="bg-white h-screen flex flex-col">
 
   <!-- HEADER -->
-  <header class="flex items-center justify-between bg-white border-b border-gray-200 px-6 py-4 flex-shrink-0">
+<header class="flex items-center justify-between bg-white border-b border-gray-200 px-6 h-20 flex-shrink-0">
     <div class="flex items-center space-x-3">
-      <img src="/images/Logo_GMS.png" alt="GMS Logo" class="h-10">
+      <img src="/images/Logo_GMS.png" alt="GMS Logo" class="h-18">
     </div>
     <div class="flex items-center space-x-4">
       <!-- Notifications -->
@@ -52,43 +52,40 @@
   <!-- MAIN LAYOUT -->
   <div class="flex flex-1 overflow-hidden">
     
-    <!-- SIDEBAR -->
-    <aside class="w-80 bg-white border-r border-gray-200 flex flex-col h-full">
-      <nav class="flex-grow p-4 space-y-2">
-        @yield('sidebar')
-      </nav>
-      <div class="p-4">
-        <a href="#" class="flex items-center space-x-4 px-4 py-3 rounded-lg font-semibold text-gray-600 hover:bg-red-900 hover:text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-            <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zm3-10H5c-1.1 
-                     0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 
-                     1.1.9 2 2 2h14c1.1 0 2-.9 
-                     2-2V5c0-1.1-.9-2-2-2z"/>
-          </svg>
-          <span class="text-base">Log out</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- CONTENT AREA (Right side with sticky footer) -->
-    <main class="flex-1 bg-white flex flex-col">
-      <div class="flex-grow p-8 overflow-y-auto">
-        @yield('content')
-      </div>
-      
-      <!-- FOOTER (sticks at bottom, no border) -->
-      <footer class="w-full text-center py-4 text-sm text-gray-600 bg-white">
-        <p>
-          © Office of Student Affairs and Services. All Rights Reserved.
-          <a href="#" class="text-blue-600 hover:underline">Terms of Use</a> |
-          <a href="https://www.usep.edu.ph/usep-data-privacy-statement/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
-            Privacy Policy
-          </a>
-        </p>
-      </footer>
-    </main>
+    <aside class="w-96 bg-white border-r border-gray-200 flex flex-col h-full">
+  <nav class="flex-grow p-4 space-y-2">
+    @yield('sidebar')
+  </nav>
+  <div class="p-4">
+    <a href="#" class="flex items-center space-x-4 px-4 py-3 rounded-lg font-semibold text-gray-600 hover:bg-red-900 hover:text-white">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+        <path d="M16 13v-2H7V8l-5 4 5 4v-3h9zm3-10H5c-1.1 
+                 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 
+                 1.1.9 2 2 2h14c1.1 0 2-.9 
+                 2-2V5c0-1.1-.9-2-2-2z"/>
+      </svg>
+      <span class="text-lg">Log out</span>
+    </a>
   </div>
+</aside>
 
+<!-- CONTENT AREA (Right side with sticky footer) -->
+<main class="flex-1 bg-white flex flex-col">
+  <div class="flex-grow p-10 overflow-y-auto">
+    @yield('content')
+  </div>
+  
+  <!-- FOOTER -->
+  <footer class="w-full text-center py-4 text-sm text-gray-600 bg-white">
+    <p>
+      © Office of Student Affairs and Services. All Rights Reserved.
+      <a href="#" class="text-blue-600 hover:underline">Terms of Use</a> |
+      <a href="https://www.usep.edu.ph/usep-data-privacy-statement/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+        Privacy Policy
+      </a>
+    </p>
+  </footer>
+</main>
   <!-- SCRIPTS -->
   <script>
     const btnNotif = document.getElementById('btnNotifications');

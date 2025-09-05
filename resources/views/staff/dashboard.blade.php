@@ -30,16 +30,16 @@
 
 @section('content')
     <!-- TOP CARD -->
-    <div class="bg-[#6f0909] text-white rounded-xl flex items-center justify-between p-10 mb-10 flex-shrink-0">
-        <div class="flex flex-col justify-between h-32">
-            <p class="text-sm">September 1, 2025</p>
-            <div>
-                <h2 class="text-3xl font-bold">Welcome back, Staff!</h2>
-                <p class="text-sm">Manage grievances, track student cases, and maintain clean records.</p>
-            </div>
+     <div class="bg-[#6f0909] text-white rounded-xl flex items-center justify-between pl-10 pt-6 mb-10 flex-shrink-0">
+        <div class="flex flex-col justify-between h-40">
+          <p class="text-medium text-gray-200">September 5, 2025</p>
+          <div>
+            <h2 class="text-5xl font-bold leading-snug">Welcome back, Anna!</h2>
+            <p class="text-medium">Keep track of your grievance history and make sure your record stays clean.</p>
+          </div>
         </div>
-        <img src="/images/Sticker.png" alt="Staff Illustration" class="h-40 object-contain">  
-    </div>
+        <img src="/images/Sticker.png" alt="Student Illustration" class="h-50 object-contain">  
+      </div>
 
     <!-- TOP ROW: 3 Stats + Profile -->
     <div class="flex gap-8 mb-8 flex-shrink-0">

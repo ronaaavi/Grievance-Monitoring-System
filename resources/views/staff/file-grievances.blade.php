@@ -34,7 +34,7 @@
   </div>
 
   <!-- Form Card -->
-  <div class="flex-1 max-w-[1200px] mx-auto w-full px-8">
+  <div class="flex-1 max-w-[1400px] mx-auto w-full px-8">
     <div class="bg-white rounded-2xl shadow-lg p-10 w-full">
       <div class="h-4 bg-[#6f0909] rounded-t-2xl -mx-10 -mt-10 mb-8"></div>
       <h1 class="text-3xl text-gray-800">Student Grievance Report Form</h1>

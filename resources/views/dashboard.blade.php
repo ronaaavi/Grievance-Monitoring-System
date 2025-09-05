@@ -7,21 +7,21 @@
         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
           <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
         </svg>
-        <span class="text-base">Dashboard</span>
+        <span class="text-xl">Dashboard</span>
       </a>
 @endsection
 
 @section('content')
       <!-- TOP CARD -->
-      <div class="bg-[#6f0909] text-white rounded-xl flex items-center justify-between p-10 mb-10 flex-shrink-0">
-        <div class="flex flex-col justify-between h-32">
-          <p class="text-sm">September 1, 2025</p>
+      <div class="bg-[#6f0909] text-white rounded-xl flex items-center justify-between pl-10 pt-6 mb-10 flex-shrink-0">
+        <div class="flex flex-col justify-between h-40">
+          <p class="text-medium text-gray-200">September 5, 2025</p>
           <div>
-            <h2 class="text-3xl font-bold">Welcome back, Rona!</h2>
-            <p class="text-sm">Keep track of your grievance history and make sure your record stays clean.</p>
+            <h2 class="text-5xl font-bold leading-snug">Welcome back, Rona!</h2>
+            <p class="text-medium">Keep track of your grievance history and make sure your record stays clean.</p>
           </div>
         </div>
-        <img src="/images/Sticker.png" alt="Student Illustration" class="h-40 object-contain">  
+        <img src="/images/Sticker.png" alt="Student Illustration" class="h-50 object-contain">  
       </div>
 
       <!-- TOP ROW: 3 Stats + Profile -->

@@ -2,7 +2,40 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/dashboard', 'dashboard');   // view at resources/views/dashboard.blade.php
+/*
+|--------------------------------------------------------------------------
+| Staff Routes
+|--------------------------------------------------------------------------
+*/
+Route::view('/staff/dashboard', 'staff.dashboard');                  // Staff dashboard
+Route::view('/staff/file-grievances', 'staff.file-grievances');      // File grievances form
 
-// Optional: make dashboard the home page while designing
-Route::get('/', fn () => view('dashboard'));
+/*
+|--------------------------------------------------------------------------
+| Student Routes
+|--------------------------------------------------------------------------
+*/
+Route::view('/student/dashboard', 'dashboard');              // Student dashboard
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+Route::view('/admin/dashboard', 'admin.dashboard');                  // Admin dashboard
+
+/*
+|--------------------------------------------------------------------------
+| Auth Routes
+|--------------------------------------------------------------------------
+*/
+Route::view('/login', 'login');                                      // Login page
+
+/*
+|--------------------------------------------------------------------------
+| Default Redirect
+|--------------------------------------------------------------------------
+*/
+Route::get('/', function () {
+    return redirect('/login');
+});
