@@ -15,7 +15,7 @@ Route::view('/staff/file-grievances', 'staff.file-grievances');      // File gri
 | Student Routes
 |--------------------------------------------------------------------------
 */
-Route::view('/student/dashboard', 'dashboard');              // Student dashboard
+Route::view('student/dashboard', 'student.dashboard')->name('student.dashboard');             // Student dashboard
 
 /*
 |--------------------------------------------------------------------------
