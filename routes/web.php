@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::view('/staff/dashboard', 'staff.dashboard');                  // Staff dashboard
 Route::view('/staff/file-grievances', 'staff.file-grievances');      // File grievances form
+Route::view('/staff/profile', 'staff.profile');                      // Staff profile page
 
 /*
 |--------------------------------------------------------------------------
