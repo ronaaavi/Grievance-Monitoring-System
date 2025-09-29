@@ -3,27 +3,13 @@
 @section('title', 'Student Dashboard')
 
 @section('sidebar')
-  <!-- Grievances -->
-<a href="{{ route('student.grievances') }}" 
-   class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
-          {{ request()->is('staff/grievances') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
-          transition-colors rounded-r-lg w-full">
-
-  <!-- Inline SVG icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M3 6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v12a1 1 0 0 
-      1-1 1H4a1 1 0 0 1-1-1V6zm2 0v12h14V6H5zm2 2h10v2H7V8zm0 
-      4h6v2H7v-2z"/>
-  </svg>
-
-  <span class="text-base">Grievances</span>
-</a>
+    @include('partials.sidebar-student')
 
 @endsection
 
 @section('content')
-  <div class="max-w-4l mx-auto px-1 overflow-x-hidden">
+<div class="flex flex-col min-h-screen">
+  <div class="flex-1 max-w-4l mx-auto px-1 overflow-x-hidden w-full">
 
     <!-- TOP CARD -->
     <div class="bg-[#6f0909] text-white rounded-xl flex flex-col md:flex-row items-center justify-between px-6 py-4 mb-6 w-full">
@@ -35,11 +21,10 @@
       <img src="/images/Sticker.png" alt="Student Illustration" class="h-20 object-contain">
     </div>
 
-<!-- Summary + Profile (GRID layout para aligned) -->
+<!-- Summary + Profile + My Grievances Table (GRID layout) -->
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
-
-  <!-- Summary Cards (3 columns, auto-fit) -->
-  <div class="lg:col-span-3">
+  <!-- Summary Cards (3 columns) -->
+  <div class="lg:col-span-3 flex flex-col gap-6">
     <h3 class="text-xl font-semibold mb-4">Summary</h3>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center">
@@ -63,6 +48,60 @@
           Resolved Cases
         </p>
       </div>
+    </div>
+
+    <!-- My Grievances Table Preview -->
+    <div class="bg-white rounded-2xl shadow-lg p-4 overflow-x-auto">
+      <h4 class="text-lg font-semibold mb-3">My Grievances</h4>
+      <table class="min-w-full border border-gray-200 text-sm">
+        <thead class="bg-gray-100 text-gray-700">
+          <tr>
+            <th class="px-4 py-2 text-left font-semibold">Grievance ID</th>
+            <th class="px-4 py-2 text-left font-semibold">Type</th>
+            <th class="px-4 py-2 text-left font-semibold">Status</th>
+            <th class="px-4 py-2 text-left font-semibold">Date</th>
+            <th class="px-4 py-2 text-left font-semibold">Remarks</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-600">
+          <tr class="border-b">
+            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-003</td>
+            <td class="px-4 py-2">Spot Report</td>
+            <td class="px-4 py-2">
+              <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+            </td>
+            <td class="px-4 py-2">13/05/2025</td>
+            <td class="px-4 py-2">Warning issued</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-002</td>
+            <td class="px-4 py-2">ARF</td>
+            <td class="px-4 py-2">
+              <span class="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs">Open</span>
+            </td>
+            <td class="px-4 py-2">22/05/2025</td>
+            <td class="px-4 py-2">Warning issued</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-001</td>
+            <td class="px-4 py-2">Spot Report</td>
+            <td class="px-4 py-2">
+              <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+            </td>
+            <td class="px-4 py-2">15/06/2025</td>
+            <td class="px-4 py-2">For investigation</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-000</td>
+            <td class="px-4 py-2">Spot Report</td>
+            <td class="px-4 py-2">
+              <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+            </td>
+            <td class="px-4 py-2">06/09/2025</td>
+            <td class="px-4 py-2">For investigation</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -88,7 +127,6 @@
       Edit Profile
     </button>
   </div>
-
 </div>
 </div>
 @endsection

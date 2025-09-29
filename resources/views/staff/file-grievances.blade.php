@@ -3,29 +3,7 @@
 @section('title', 'File Grievances')
 
 @section('sidebar')
-  <a href="{{ route('staff.file-grievances') }}" 
-     class="flex items-center space-x-4 px-4 py-4 rounded-lg font-semibold 
-            text-gray-700 hover:bg-red-800 hover:text-white 
-            bg-red-800 text-white">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" 
-         viewBox="0 0 24 24" class="w-6 h-6">
-      <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-    </svg>
-    <span class="text-base">File Grievances</span>
-  </a>
-
-  <!-- Profile -->
-  <a href="{{ route('staff.profile') }}"
-     class="flex items-center space-x-4 px-4 py-4 rounded-lg font-semibold
-            text-gray-700 hover:bg-red-800 hover:text-white
-            {{ request()->routeIs('staff.profile') ? 'bg-red-800 text-white' : '' }}">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
-         viewBox="0 0 24 24" class="w-6 h-6">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-            d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4zm0-2a4 4 0 100-8 4 4 0 000 8z"/>
-    </svg>
-    <span class="text-base">Profile</span>
-  </a>
+    @include('partials.sidebar-staff')
 @endsection
 
 @section('content')

@@ -2,35 +2,9 @@
 
 @section('title', 'Staff Dashboard')
 
+
 @section('sidebar')
-<!-- File Grievances -->
-<a href="/staff/file-grievances" 
-   class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
-          {{ request()->is('staff/file-grievances') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
-          transition-colors rounded-r-lg w-full">
-  
-  <!-- Inline SVG icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       class="w-6 h-6 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-    <path fill-rule="evenodd" d="M2.5 1.045a.5.5 0 0 0-.5.5v10.91a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V5.364a.5.5 0 0 0-.152-.36L7.911 1.188a.5.5 0 0 0-.348-.142zm7.766 3.819L8.063 2.727v2.137zM6 5.5H4v-1h2zM10 8H4V7h6zm-6 2.5h6v-1H4z" clip-rule="evenodd"/>
-    <path d="M13 7.5V14H4.5v1h9a.5.5 0 0 0 .5-.5v-7z"/>
-  </svg>
-
-  <span class="text-base">File Grievances</span>
-</a>
-
-<a href="{{ route('admin.profile') }}" 
-       class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
-              {{ request()->routeIs('admin.profile') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
-              transition-colors rounded-r-lg w-full">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
-             viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4zm0-2a4 4 0 100-8 
-                     4 4 0 000 8z"/>
-        </svg>
-        <span class="text-base">Profile</span>
-    </a>
+    @include('partials.sidebar-staff')
 @endsection
 
 @section('content')
@@ -53,11 +27,10 @@
 
     <!-- GRID: Summary (3 cols) + Profile (1 col) -->
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8">
-        
         <!-- Summary Cards -->
-        <div class="lg:col-span-3">
+        <div class="lg:col-span-3 flex flex-col gap-6">
             <h3 class="text-xl font-semibold mb-4">Summary</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
                 <div class="bg-white rounded-lg shadow p-6 text-center">
                     <p class="text-4xl font-bold text-red-800 mb-2">15</p>
                     <p class="text-base text-gray-600 flex items-center justify-center">
@@ -80,8 +53,61 @@
                     </p>
                 </div>
             </div>
+
+            <!-- My Grievances Table Preview -->
+            <div class="bg-white rounded-2xl shadow-lg p-4 overflow-x-auto">
+                <h4 class="text-lg font-semibold mb-3">My Grievances</h4>
+                <table class="min-w-full border border-gray-200 text-sm">
+                    <thead class="bg-gray-100 text-gray-700">
+                        <tr>
+                            <th class="px-4 py-2 text-left font-semibold">Grievance ID</th>
+                            <th class="px-4 py-2 text-left font-semibold">Type</th>
+                            <th class="px-4 py-2 text-left font-semibold">Status</th>
+                            <th class="px-4 py-2 text-left font-semibold">Date</th>
+                            <th class="px-4 py-2 text-left font-semibold">Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-600">
+                        <tr class="border-b">
+                            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-003</td>
+                            <td class="px-4 py-2">Spot Report</td>
+                            <td class="px-4 py-2">
+                                <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+                            </td>
+                            <td class="px-4 py-2">13/05/2025</td>
+                            <td class="px-4 py-2">Warning issued</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-002</td>
+                            <td class="px-4 py-2">ARF</td>
+                            <td class="px-4 py-2">
+                                <span class="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs">Open</span>
+                            </td>
+                            <td class="px-4 py-2">22/05/2025</td>
+                            <td class="px-4 py-2">Warning issued</td>
+                        </tr>
+                        <tr class="border-b">
+                            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-001</td>
+                            <td class="px-4 py-2">Spot Report</td>
+                            <td class="px-4 py-2">
+                                <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+                            </td>
+                            <td class="px-4 py-2">15/06/2025</td>
+                            <td class="px-4 py-2">For investigation</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 text-blue-600 font-medium">CASE-2025-000</td>
+                            <td class="px-4 py-2">Spot Report</td>
+                            <td class="px-4 py-2">
+                                <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
+                            </td>
+                            <td class="px-4 py-2">06/09/2025</td>
+                            <td class="px-4 py-2">For investigation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        
 
         <!-- Profile Card -->
         <div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">

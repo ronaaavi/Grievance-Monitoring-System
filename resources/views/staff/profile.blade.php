@@ -3,34 +3,7 @@
 @section('title', 'Staff Profile')
 
 @section('sidebar')
-<!-- File Grievances -->
-<a href="/staff/file-grievances" 
-   class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
-          {{ request()->is('staff/file-grievances') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
-          transition-colors rounded-r-lg w-full">
-  
-  <!-- Inline SVG icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       class="w-6 h-6 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor">
-    <path fill-rule="evenodd" d="M2.5 1.045a.5.5 0 0 0-.5.5v10.91a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V5.364a.5.5 0 0 0-.152-.36L7.911 1.188a.5.5 0 0 0-.348-.142zm7.766 3.819L8.063 2.727v2.137zM6 5.5H4v-1h2zM10 8H4V7h6zm-6 2.5h6v-1H4z" clip-rule="evenodd"/>
-    <path d="M13 7.5V14H4.5v1h9a.5.5 0 0 0 .5-.5v-7z"/>
-  </svg>
-
-  <span class="text-base">File Grievances</span>
-</a>
-
-<a href="{{ route('admin.profile') }}" 
-       class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
-              {{ request()->routeIs('admin.profile') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
-              transition-colors rounded-r-lg w-full">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
-             viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4zm0-2a4 4 0 100-8 
-                     4 4 0 000 8z"/>
-        </svg>
-        <span class="text-base">Profile</span>
-    </a>
+    @include('partials.sidebar-staff')
 @endsection
 
 @section('content')
