@@ -29,101 +29,99 @@
     }
   </style>
 </head>
-<body class="h-screen w-screen flex">
+<body class="h-screen w-screen flex flex-col md:flex-row">
 
- <!-- Left Panel -->
-<!-- Left Panel -->
-<div class="w-1/2 h-full bg-gradient-to-br from-[#DC5656] via-[#800000] to-[#EB6E6E] 
-            flex flex-col justify-between rounded-r-[60px] shadow-xl px-14 py-12">
+  <!-- Left Panel -->
+  <div class="w-full md:w-1/2 h-full bg-gradient-to-br from-[#DC5656] via-[#800000] to-[#EB6E6E] 
+              flex flex-col justify-between rounded-none md:rounded-r-[60px] shadow-xl px-6 md:px-14 py-8 md:py-12">
 
-  <div class="flex-1 flex items-center justify-center">
-    <!-- Slightly larger form container -->
-    <div class="w-[75%] max-w-[380px]">
+    <div class="flex-1 flex items-center justify-center">
+      <!-- Slightly larger form container -->
+      <div class="w-full max-w-[380px]">
 
-      <!-- Title -->
-      <div class="text-center mb-8">
-        <h1 class="text-5xl font-semibold text-white inline-block relative">
-          <span class="block">Login</span>
-          <span class="block h-[3px] bg-white mt-5 w-full"></span>
-        </h1>
-      </div>
-
-      <!-- Form -->
-      <form id="loginForm" action="/login" method="POST" class="space-y-6">
-        @csrf
-
-        <!-- Username -->
-        <div class="flex justify-center">
-          <input type="text" name="email" placeholder="Username" required
-                 class="w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base mx-auto">
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <h1 class="text-4xl md:text-5xl font-semibold text-white inline-block relative">
+            <span class="block">Login</span>
+            <span class="block h-[3px] bg-white mt-5 w-full"></span>
+          </h1>
         </div>
 
-        <!-- Password with Eye Icon -->
-        <div class="relative flex justify-center">
-          <input type="password" id="password" name="password" placeholder="Password" required
-                 class="w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base pr-10 mx-auto">
-          <button type="button" onclick="togglePassword()" 
-                  class="absolute right-2 top-2 text-white">
-            <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" 
-                 fill="none" viewBox="0 0 24 24" stroke="currentColor" 
-                 class="w-5 h-5">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
+        <!-- Form -->
+        <form id="loginForm" action="/login" method="POST" class="space-y-6">
+          @csrf
+
+          <!-- Username -->
+          <div class="flex justify-center">
+            <input type="text" name="email" placeholder="Username" required
+                   class="w-full md:w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base mx-auto">
+          </div>
+
+          <!-- Password with Eye Icon -->
+          <div class="relative flex justify-center">
+            <input type="password" id="password" name="password" placeholder="Password" required
+                   class="w-full md:w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base pr-10 mx-auto">
+            <button type="button" onclick="togglePassword()" 
+                    class="absolute right-2 top-2 text-white">
+              <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" 
+                   fill="none" viewBox="0 0 24 24" stroke="currentColor" 
+                   class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Remember me + Forgot password -->
+          <div class="flex justify-between items-center text-white text-sm flex-wrap gap-2">
+            <label class="flex items-center space-x-2">
+              <input type="checkbox" name="remember" class="w-4 h-4">
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="hover:underline">Forgot password?</a>
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit"
+                  class="w-full bg-white text-black font-semibold py-3 rounded-full text-base uppercase hover:bg-gray-100 transition">
+            LOGIN
           </button>
-        </div>
 
-        <!-- Remember me + Forgot password -->
-        <div class="flex justify-between items-center text-white text-sm">
-          <label class="flex items-center space-x-2">
-            <input type="checkbox" name="remember" class="w-4 h-4">
-            <span>Remember me</span>
-          </label>
-          <a href="#" class="hover:underline">Forgot password?</a>
-        </div>
+          <!-- Divider -->
+          <div class="flex items-center my-4">
+            <hr class="flex-grow border-t border-white">
+            <span class="mx-3 text-white text-sm">or</span>
+            <hr class="flex-grow border-t border-white">
+          </div>
 
-        <!-- Login Button -->
-        <button type="submit"
-                class="w-full bg-white text-black font-semibold py-3 rounded-full text-base uppercase hover:bg-gray-100 transition">
-          LOGIN
-        </button>
+          <!-- Google Sign-in -->
+          <button type="button" onclick="signInWithGoogle()"
+                  class="w-full bg-white text-black font-medium py-3 rounded-full text-base flex items-center justify-center gap-3 hover:bg-gray-100 transition">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" class="w-6 h-6">
+            Sign in with Google
+          </button>
+        </form>
+      </div>
+    </div>
 
-        <!-- Divider -->
-        <div class="flex items-center my-4">
-          <hr class="flex-grow border-t border-white">
-          <span class="mx-3 text-white text-sm">or</span>
-          <hr class="flex-grow border-t border-white">
-        </div>
-
-        <!-- Google Sign-in -->
-        <button type="button" onclick="signInWithGoogle()"
-                class="w-full bg-white text-black font-medium py-3 rounded-full text-base flex items-center justify-center gap-3 hover:bg-gray-100 transition">
-          <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" class="w-6 h-6">
-          Sign in with Google
-        </button>
-      </form>
+    <!-- Signup link -->
+    <div class="text-center text-white text-sm mt-6 md:mb-6">
+      Don’t have an account? 
+      <a href="#" class="text-blue-300 hover:underline font-semibold">Sign up</a>
     </div>
   </div>
 
-  <!-- Signup link -->
-  <div class="text-center text-white text-sm mb-6">
-    Don’t have an account? 
-    <a href="#" class="text-blue-300 hover:underline font-semibold">Sign up</a>
-  </div>
-</div>
-
-
   <!-- Right Panel -->
-  <div class="w-1/2 bg-white h-full flex flex-col items-center justify-between px-12">
+  <div class="w-full md:w-1/2 bg-white h-full flex flex-col items-center justify-between px-6 md:px-12 py-8 md:py-0">
     <div class="flex-1 flex items-center justify-center">
       <img src="{{ asset('images/Login_pic.png') }}" 
            alt="Login Illustration" 
-           class="w-[100%] translate-y-6"> 
+           class="w-full max-w-[500px] md:translate-y-6"> 
     </div>
 
-    <div class="text-sm text-gray-400 pb-6 text-center tracking-wide">
+    <div class="text-sm text-gray-400 mt-6 md:pb-6 text-center tracking-wide">
       © 2025 Office of Student Affairs and Services. All Rights Reserved.
     </div>
   </div>
@@ -151,6 +149,5 @@
       }
     }
   </script>
-
 </body>
 </html>

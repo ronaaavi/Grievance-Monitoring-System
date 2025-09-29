@@ -3,7 +3,23 @@
 @section('title', 'Student Dashboard')
 
 @section('sidebar')
-  <!-- Add extra sidebar items here if needed -->
+  <!-- Grievances -->
+<a href="{{ route('student.grievances') }}" 
+   class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
+          {{ request()->is('staff/grievances') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
+          transition-colors rounded-r-lg w-full">
+
+  <!-- Inline SVG icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v12a1 1 0 0 
+      1-1 1H4a1 1 0 0 1-1-1V6zm2 0v12h14V6H5zm2 2h10v2H7V8zm0 
+      4h6v2H7v-2z"/>
+  </svg>
+
+  <span class="text-base">Grievances</span>
+</a>
+
 @endsection
 
 @section('content')

@@ -18,6 +18,19 @@
 
   <span class="text-base">File Grievances</span>
 </a>
+
+<a href="{{ route('admin.profile') }}" 
+       class="flex items-center gap-3 px-6 py-4 font-semibold cursor-pointer
+              {{ request()->routeIs('admin.profile') ? 'bg-red-900 text-white' : 'text-red-900 hover:bg-red-800 hover:text-white' }}
+              transition-colors rounded-r-lg w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" 
+             viewBox="0 0 24 24" class="w-6 h-6 flex-shrink-0">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                  d="M12 14c-4.418 0-8 1.79-8 4v2h16v-2c0-2.21-3.582-4-8-4zm0-2a4 4 0 100-8 
+                     4 4 0 000 8z"/>
+        </svg>
+        <span class="text-base">Profile</span>
+    </a>
 @endsection
 
 @section('content')
