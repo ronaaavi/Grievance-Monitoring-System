@@ -21,30 +21,38 @@
         </nav>
     </div>
 
-    <div class="flex-1 max-w-4l mx-auto px-1 overflow-x-hidden w-full">
-        <div class="bg-white shadow-md rounded-lg p-6">
-            <!-- Title and Search -->
-            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">My Grievances</h2>
-                <div class="flex justify-end">
-                    <input type="text" placeholder="Search" 
-                        class="border border-gray-300 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-red-500">
+    <!-- Main Table -->
+    <div class="flex-1 px-6 w-full">
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden w-full">
+            <div class="h-4 bg-[#6f0909]"></div>
+            <div class="p-6">
+                <h1 class="text-2xl text-gray-800 font-semibold mb-2">My Grievances</h1>
+                <div class="border-t border-gray-200 mt-2 mb-5"></div>
+                <div class="flex justify-between items-center mb-2">
+                    <div></div>
+                    <div class="relative">
+                        <input type="text" placeholder="Search" class="px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-red-800 focus:border-red-800 outline-none text-sm" />
+                    </div>
                 </div>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="min-w-full text-sm">
-                    <thead class="bg-gray-50 text-gray-700">
-                        <tr>
-                            <th class="px-5 py-3 text-left font-semibold">Grievance ID</th>
-                            <th class="px-5 py-3 text-left font-semibold">Type</th>
-                            <th class="px-5 py-3 text-left font-semibold">Status</th>
-                            <th class="px-5 py-3 text-left font-semibold">Date</th>
-                            <th class="px-5 py-3 text-left font-semibold">Remarks</th>
+                <div class="overflow-x-auto">
+                <table class="min-w-full text-sm text-left text-gray-700 rounded-xl overflow-hidden">
+                    <thead>
+                        <tr class="bg-blue-50 text-blue-900">
+                            <th class="px-5 py-3 font-semibold">Grievance ID</th>
+                            <th class="px-5 py-3 font-semibold">Type</th>
+                            <th class="px-5 py-3 font-semibold">Status</th>
+                            <th class="px-5 py-3 font-semibold">Date</th>
+                            <th class="px-5 py-3 font-semibold">Remarks</th>
                         </tr>
                     </thead>
-                    <tbody class="text-gray-700">
-                        <tr class="border-b last:border-b-0">
-                            <td class="px-5 py-3 text-blue-600 font-medium">CASE-2025-003</td>
+                    <tbody class="bg-white">
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-5 py-3">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <span class="text-blue-600 font-medium">CASE-2025-003</span>
+                                </div>
+                            </td>
                             <td class="px-5 py-3">Spot Report</td>
                             <td class="px-5 py-3">
                                 <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
@@ -52,8 +60,13 @@
                             <td class="px-5 py-3">13/05/2025</td>
                             <td class="px-5 py-3">Warning issued</td>
                         </tr>
-                        <tr class="border-b last:border-b-0">
-                            <td class="px-5 py-3 text-blue-600 font-medium">CASE-2025-002</td>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-5 py-3">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <span class="text-blue-600 font-medium">CASE-2025-002</span>
+                                </div>
+                            </td>
                             <td class="px-5 py-3">ARF</td>
                             <td class="px-5 py-3">
                                 <span class="px-2 py-1 rounded bg-yellow-100 text-yellow-700 text-xs">Open</span>
@@ -61,8 +74,13 @@
                             <td class="px-5 py-3">22/05/2025</td>
                             <td class="px-5 py-3">Warning issued</td>
                         </tr>
-                        <tr class="border-b last:border-b-0">
-                            <td class="px-5 py-3 text-blue-600 font-medium">CASE-2025-001</td>
+                        <tr class="border-b hover:bg-gray-50">
+                            <td class="px-5 py-3">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <span class="text-blue-600 font-medium">CASE-2025-001</span>
+                                </div>
+                            </td>
                             <td class="px-5 py-3">Spot Report</td>
                             <td class="px-5 py-3">
                                 <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
@@ -70,8 +88,13 @@
                             <td class="px-5 py-3">15/06/2025</td>
                             <td class="px-5 py-3">For investigation</td>
                         </tr>
-                        <tr>
-                            <td class="px-5 py-3 text-blue-600 font-medium">CASE-2025-000</td>
+                        <tr class="hover:bg-gray-50">
+                            <td class="px-5 py-3">
+                                <div class="flex items-center gap-3">
+                                    <input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+                                    <span class="text-blue-600 font-medium">CASE-2025-000</span>
+                                </div>
+                            </td>
                             <td class="px-5 py-3">Spot Report</td>
                             <td class="px-5 py-3">
                                 <span class="px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Resolved</span>
@@ -81,6 +104,7 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
             </div>
         </div>
     </div>

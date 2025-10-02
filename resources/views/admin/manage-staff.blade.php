@@ -20,7 +20,7 @@
 		</nav>
 	</div>
 
-	<div class="flex-1 max-w-6xl mx-auto px-1 overflow-x-hidden w-full">
+	<div class="flex-1 px-6 w-full">
 		<div class="bg-white shadow-md rounded-lg p-6">
 			<div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
 				<h2 class="text-2xl font-bold text-gray-800 mb-2 md:mb-0">Staff Accounts</h2>
@@ -32,8 +32,7 @@
 				<table class="min-w-full text-sm">
 					<thead class="bg-gray-50 text-gray-700">
 						<tr>
-							<th class="px-5 py-3 text-left font-semibold"><input type="checkbox" /></th>
-							<th class="px-5 py-3 text-left font-semibold">ID Number</th>
+							<th class="px-5 py-3 text-left font-semibold">Staff ID</th>
 							<th class="px-5 py-3 text-left font-semibold">Name</th>
 							<th class="px-5 py-3 text-left font-semibold">Position</th>
 							<th class="px-5 py-3 text-left font-semibold">Email</th>
@@ -43,39 +42,93 @@
 					</thead>
 					<tbody class="text-gray-700">
 						<tr class="border-b last:border-b-0">
-							<td class="px-5 py-3"><input type="checkbox" /></td>
-							<td class="px-5 py-3">2022-00001</td>
+							<td class="px-5 py-3">
+								<div class="flex items-center gap-3">
+									<input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+									<span>2022-00001</span>
+								</div>
+							</td>
 							<td class="px-5 py-3">Maria D. Reyes</td>
 							<td class="px-5 py-3">OSAS Coordinator</td>
 							<td class="px-5 py-3">m.reyes@usep.edu.ph</td>
 							<td class="px-5 py-3"><span class="inline-flex items-center px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Active</span></td>
-							<td class="px-5 py-3 flex gap-2">
-								<button class="text-green-600 hover:text-green-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></button>
-								<button class="text-red-600 hover:text-red-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+							<td class="px-5 py-3">
+								<div class="flex space-x-2">
+									<a href="{{ route('admin.staff.edit', 1) }}" class="text-blue-600 hover:text-blue-800">
+										<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+										</svg>
+									</a>
+									<form method="POST" action="{{ route('admin.staff.destroy', 1) }}" class="inline">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Are you sure you want to delete this staff member?')">
+											<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+											</svg>
+										</button>
+									</form>
+								</div>
 							</td>
 						</tr>
 						<tr class="border-b last:border-b-0">
-							<td class="px-5 py-3"><input type="checkbox" /></td>
-							<td class="px-5 py-3">2022-00002</td>
+							<td class="px-5 py-3">
+								<div class="flex items-center gap-3">
+									<input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+									<span>2022-00002</span>
+								</div>
+							</td>
 							<td class="px-5 py-3">John Michael Santos</td>
 							<td class="px-5 py-3">Guidance Office</td>
 							<td class="px-5 py-3">jsantos@usep.edu.ph</td>
 							<td class="px-5 py-3"><span class="inline-flex items-center px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Active</span></td>
-							<td class="px-5 py-3 flex gap-2">
-								<button class="text-green-600 hover:text-green-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></button>
-								<button class="text-red-600 hover:text-red-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+							<td class="px-5 py-3">
+								<div class="flex space-x-2">
+									<a href="{{ route('admin.staff.edit', 2) }}" class="text-blue-600 hover:text-blue-800">
+										<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+										</svg>
+									</a>
+									<form method="POST" action="{{ route('admin.staff.destroy', 2) }}" class="inline">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Are you sure you want to delete this staff member?')">
+											<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+											</svg>
+										</button>
+									</form>
+								</div>
 							</td>
 						</tr>
 						<tr class="border-b last:border-b-0">
-							<td class="px-5 py-3"><input type="checkbox" /></td>
-							<td class="px-5 py-3">2022-00003</td>
+							<td class="px-5 py-3">
+								<div class="flex items-center gap-3">
+									<input type="checkbox" class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded">
+									<span>2022-00003</span>
+								</div>
+							</td>
 							<td class="px-5 py-3">Camille P. Vergara</td>
 							<td class="px-5 py-3">OSAS Clerk</td>
 							<td class="px-5 py-3">jsantos@usep.edu.ph</td>
 							<td class="px-5 py-3"><span class="inline-flex items-center px-2 py-1 rounded bg-green-100 text-green-700 text-xs">Active</span></td>
-							<td class="px-5 py-3 flex gap-2">
-								<button class="text-green-600 hover:text-green-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg></button>
-								<button class="text-red-600 hover:text-red-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+							<td class="px-5 py-3">
+								<div class="flex space-x-2">
+									<a href="{{ route('admin.staff.edit', 3) }}" class="text-blue-600 hover:text-blue-800">
+										<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+										</svg>
+									</a>
+									<form method="POST" action="{{ route('admin.staff.destroy', 3) }}" class="inline">
+										@csrf
+										@method('DELETE')
+										<button type="submit" class="text-red-600 hover:text-red-800" onclick="return confirm('Are you sure you want to delete this staff member?')">
+											<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+											</svg>
+										</button>
+									</form>
+								</div>
 							</td>
 						</tr>
 						<!-- Add more rows as needed -->

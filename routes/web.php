@@ -31,6 +31,19 @@ Route::view('/student/profile', 'student.profile')->name('student.profile');
 Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard');
 Route::view('/admin/manage-staff', 'admin.manage-staff')->name('admin.manage-staff');
 Route::view('/admin/manage-students', 'admin.manage-students')->name('admin.manage-students');
+
+// Show the edit form for a staff member
+Route::get('/admin/manage-staff/{id}/edit', function ($id) {
+    // TODO: Replace with your actual controller and logic
+    return "Edit staff form for ID: $id (implement view/controller)";
+})->name('admin.staff.edit');
+
+// Delete a staff member
+Route::delete('/admin/manage-staff/{id}', function ($id) {
+    // TODO: Replace with your actual controller and logic
+    // Perform delete logic here
+    return redirect()->route('admin.manage-staff');
+})->name('admin.staff.destroy');
 // Show the edit form for a student
 Route::get('/admin/manage-students/{id}/edit', function ($id) {
     // TODO: Replace with your actual controller and logic
@@ -78,6 +91,8 @@ Route::view('/admin/settings', 'admin.settings')->name('admin.settings');
 |--------------------------------------------------------------------------
 */
 Route::view('/login', 'login')->name('login');
+Route::view('/signup', 'signup')->name('signup');
+Route::view('/request', 'request')->name('request');
 
 // Logout route
 Route::post('/logout', function (Request $request) {
@@ -96,4 +111,4 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::view('/request', 'request')->name('request');
+

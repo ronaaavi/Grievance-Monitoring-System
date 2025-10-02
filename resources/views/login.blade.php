@@ -29,40 +29,40 @@
     }
   </style>
 </head>
-<body class="h-screen w-screen flex flex-col md:flex-row">
+<body class="min-h-screen w-screen flex flex-col lg:flex-row">
 
   <!-- Left Panel -->
-  <div class="w-full md:w-1/2 h-full bg-gradient-to-br from-[#DC5656] via-[#800000] to-[#EB6E6E] 
-              flex flex-col justify-between rounded-none md:rounded-r-[60px] shadow-xl px-6 md:px-14 py-8 md:py-12">
+  <div class="w-full lg:w-1/2 min-h-screen lg:h-screen bg-gradient-to-br from-[#DC5656] via-[#800000] to-[#EB6E6E] 
+              flex flex-col justify-between rounded-none lg:rounded-r-[60px] shadow-xl px-4 sm:px-6 md:px-14 py-6 sm:py-8 md:py-12">
 
-    <div class="flex-1 flex items-center justify-center">
+    <div class="flex-1 flex items-center justify-center py-4 sm:py-6 lg:py-0">
       <!-- Slightly larger form container -->
-      <div class="w-full max-w-[380px]">
+      <div class="w-full max-w-[400px] sm:max-w-[480px]">
 
         <!-- Title -->
-        <div class="text-center mb-8">
-          <h1 class="text-4xl md:text-5xl font-semibold text-white inline-block relative">
+        <div class="text-center mb-6 sm:mb-8">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-semibold text-white inline-block relative">
             <span class="block">Login</span>
-            <span class="block h-[3px] bg-white mt-5 w-full"></span>
+            <span class="block h-[3px] bg-white mt-3 sm:mt-5 w-full"></span>
           </h1>
         </div>
 
         <!-- Form -->
-        <form id="loginForm" action="/login" method="POST" class="space-y-6">
+        <form id="loginForm" action="/login" method="POST" class="space-y-4 sm:space-y-6">
           @csrf
 
           <!-- Username -->
-          <div class="flex justify-center">
+          <div class="w-full">
             <input type="text" name="email" placeholder="Username" required
-                   class="w-full md:w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base mx-auto">
+                   class="w-full border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-sm sm:text-base">
           </div>
 
           <!-- Password with Eye Icon -->
-          <div class="relative flex justify-center">
+          <div class="relative w-full">
             <input type="password" id="password" name="password" placeholder="Password" required
-                   class="w-full md:w-[380px] border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-base pr-10 mx-auto">
+                   class="w-full border-b border-white focus:border-white focus:outline-none pb-3 text-white bg-transparent placeholder-white text-sm sm:text-base pr-10">
             <button type="button" onclick="togglePassword()" 
-                    class="absolute right-2 top-2 text-white">
+                    class="absolute right-0 top-2 text-white">
               <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" 
                    fill="none" viewBox="0 0 24 24" stroke="currentColor" 
                    class="w-5 h-5">
@@ -75,7 +75,7 @@
           </div>
 
           <!-- Remember me + Forgot password -->
-          <div class="flex justify-between items-center text-white text-sm flex-wrap gap-2">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center text-white text-xs sm:text-sm gap-2 sm:gap-0">
             <label class="flex items-center space-x-2">
               <input type="checkbox" name="remember" class="w-4 h-4">
               <span>Remember me</span>
@@ -85,22 +85,23 @@
 
           <!-- Login Button -->
           <button type="submit"
-                  class="w-full bg-white text-black font-semibold py-3 rounded-full text-base uppercase hover:bg-gray-100 transition">
+                  class="w-full bg-white text-black font-semibold py-2.5 sm:py-3 rounded-full text-sm sm:text-base uppercase hover:bg-gray-100 transition">
             LOGIN
           </button>
 
           <!-- Divider -->
-          <div class="flex items-center my-4">
+          <div class="flex items-center my-3 sm:my-4">
             <hr class="flex-grow border-t border-white">
-            <span class="mx-3 text-white text-sm">or</span>
+            <span class="mx-3 text-white text-xs sm:text-sm">or</span>
             <hr class="flex-grow border-t border-white">
           </div>
 
           <!-- Google Sign-in -->
           <button type="button" onclick="signInWithGoogle()"
-                  class="w-full bg-white text-black font-medium py-3 rounded-full text-base flex items-center justify-center gap-3 hover:bg-gray-100 transition">
-            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" class="w-6 h-6">
-            Sign in with Google
+                  class="w-full bg-white text-black font-medium py-2.5 sm:py-3 rounded-full text-sm sm:text-base flex items-center justify-center gap-3 hover:bg-gray-100 transition">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" class="w-5 h-5 sm:w-6 sm:h-6">
+            <span class="hidden sm:inline">Sign in with Google</span>
+            <span class="sm:hidden">Google</span>
           </button>
         </form>
       </div>
@@ -114,14 +115,14 @@
   </div>
 
   <!-- Right Panel -->
-  <div class="w-full md:w-1/2 bg-white h-full flex flex-col items-center justify-between px-6 md:px-12 py-8 md:py-0">
+  <div class="w-full md:w-1/2 bg-white h-screen flex flex-col">
     <div class="flex-1 flex items-center justify-center">
       <img src="{{ asset('images/Login_pic.png') }}" 
            alt="Login Illustration" 
-           class="w-full max-w-[500px] md:translate-y-6"> 
+           class="w-full max-w-[600px] mx-auto"> 
     </div>
 
-    <div class="text-sm text-gray-400 mt-6 md:pb-6 text-center tracking-wide">
+    <div class="flex-shrink-0 text-sm text-gray-400 text-center tracking-wide py-4 px-6 md:px-12">
       © 2025 Office of Student Affairs and Services. All Rights Reserved.
     </div>
   </div>
